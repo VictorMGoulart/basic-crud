@@ -38,25 +38,25 @@
             <div class="d-flex mb-3 gap-3">
                 <div class="w-50">
                     <label class="form-label">Rua</label>
-                    <input type="text" class="form-control" name="endereco[][rua]" value="<?= $endereco->rua ?>" />
+                    <input type="text" class="form-control" name="rua" value="<?= $endereco->rua ?>" />
                 </div>
                 <div class="w-50">
                     <label class="form-label">Bairro</label>
-                    <input type="text" class="form-control" name="endereco[][bairro]" value="<?= $endereco->bairro ?>" />
+                    <input type="text" class="form-control" name="bairro" value="<?= $endereco->bairro ?>" />
                 </div>
                 <div>
                     <label class="form-label">Número</label>
-                    <input type="text" class="form-control" name="endereco[][numero]" value="<?= $endereco->numero ?>" />
+                    <input type="text" class="form-control" name="numero" value="<?= $endereco->numero ?>" />
                 </div>
             </div>
             <div class="d-flex mb-3 gap-3">
                 <div>
                     <label class="form-label">Cidade</label>
-                    <input type="text" class="form-control" name="endereco[][cidade]" value="<?= $endereco->cidade ?>" />
+                    <input type="text" class="form-control" name="cidade" value="<?= $endereco->cidade ?>" />
                 </div>
                 <div>
                     <label class="form-label">Estado</label>
-                    <input type="text" class="form-control" name="endereco[][estado]" value="<?= $endereco->estado ?>" />
+                    <input type="text" class="form-control" name="estado" value="<?= $endereco->estado ?>" />
                 </div>
             </div>
         </div>

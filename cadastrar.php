@@ -11,12 +11,6 @@ use \App\Session\Login;
 Login::requireLogin();
 
 if (hasCliente()) {
-    foreach ($_POST['endereco[]'] as $teste) {
-        echo '<pre>';
-        print_r($teste);
-        echo '</pre>';
-        exit;
-    }
 
     $cliente = new Cliente;
     $cliente->nome = $_POST["nome"];

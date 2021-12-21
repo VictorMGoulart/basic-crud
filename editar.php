@@ -28,12 +28,6 @@ function redirectToIndex()
 }
 
 if (isset($_POST["nome"], $_POST["cpf"], $_POST["rg"], $_POST["telefone"], $_POST["dataNasc"])) {
-    foreach ($_POST['endereco'] as $teste) {
-        echo '<pre>';
-        print_r($teste);
-        echo '</pre>';
-    }
-    exit;
 
     $cliente->nome = $_POST["nome"];
     $cliente->cpf = $_POST["cpf"];
