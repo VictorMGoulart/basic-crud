@@ -89,24 +89,3 @@ CREATE TABLE `usuario` (
   UNIQUE KEY `UC_username` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `usuario`
---
-
-LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES ('admin','$2y$10$U5R.H4cRqqkLZpXUSlvJ6.z.becx/xPnQiKCRvE18C1DVpAXP339q',1),('victor','$2y$10$KwLTlbV8JLyNifmrJXVVOO2/gajIBGPtoXWW0JO3ngvmh5jsEJGnK',5),('luis@email.com','$2y$10$FhQ2RR9.7kvUwkeqWhh1FudFvfGZde/PB5kdKgiAOLJPob4uCcIGC',6),('diego.teste@gmail.com','$2y$10$58Vf96x9OGf2DcenOBlvWuC3Objz22feFy3JOc9RRT7latD0HiX56',7),('1234','$2y$10$XEsBRicxeISiEGiYuKztauiDhlnCcAm7dUBr7VvYEnN1vYLlDEi1G',8),('alexandre','$2y$10$wDjzzwGIY.BjMreMAGXNrutupFShSmKUUYWpKQi62lMTtgcSiKcp2',9),('LU8ISA','$2y$10$aSccBDRcfwWqLsItqkdH.ufhQUCJotpbD46Z4lVZmsK2x4RagDgzy',10);
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2021-12-21 16:15:11
