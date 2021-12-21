@@ -6,5 +6,5 @@ se a aplicação estiver indisponível, rode em sua máquina 👇
 2. Rodar o backup "cruddb.sql"
 3. Modificar o user e password do database, no file: `app/Db/Database.php`, caso necessário.
 
-Adicione o repositorio basic-crud ao `/var/www/html` do seu servidor xampp e acessar `localhost` para usar a aplicação.
+Adicione o repositorio basic-crud ao `/var/www/html` do seu servidor xampp e acesse `localhost` para usar a aplicação.
 
