@@ -43,7 +43,8 @@ class Database
             $statement->execute($params);
             return $statement;
         } catch (PDOException $e) {
-            die('Erro ao executar SQL!');
+            header("location: index.php?status=error");
+            exit();
         }
     }
 
@@ -77,5 +78,14 @@ class Database
         $query = 'SELECT * FROM ' . $this->table . ' ' . $where . ' ' . $order . ' ' . $limit;
 
         return $this->execute($query);
+    }
+
+    public function delete($where)
+    {
+        $query = 'DELETE FROM ' . $this->table . ' WHERE ' . $where;
+
+        return $this->execute($query);
+
+        return true;
     }
 }

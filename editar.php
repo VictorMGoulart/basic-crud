@@ -6,6 +6,9 @@ define('TITLE', 'Editar Cliente');
 
 use \App\Entity\Cliente;
 use \App\Entity\Endereco;
+use \App\Session\Login;
+
+Login::requireLogin();
 
 if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     redirectToIndex();
@@ -25,8 +28,13 @@ function redirectToIndex()
 }
 
 if (isset($_POST["nome"], $_POST["cpf"], $_POST["rg"], $_POST["telefone"], $_POST["dataNasc"])) {
+    foreach ($_POST['endereco'] as $teste) {
+        echo '<pre>';
+        print_r($teste);
+        echo '</pre>';
+    }
+    exit;
 
-    $cliente = new Cliente;
     $cliente->nome = $_POST["nome"];
     $cliente->cpf = $_POST["cpf"];
     $cliente->rg = $_POST["rg"];
@@ -34,14 +42,19 @@ if (isset($_POST["nome"], $_POST["cpf"], $_POST["rg"], $_POST["telefone"], $_POS
     $cliente->dataNasc = $_POST["dataNasc"];
     $cliente->atualizar();
 
-    $endereco = new Endereco;
-    $endereco->rua = $_POST["rua"];
-    $endereco->bairro = $_POST["bairro"];
-    $endereco->numero = $_POST["numero"];
-    $endereco->cidade = $_POST["cidade"];
-    $endereco->estado = $_POST["estado"];
-    $endereco->clienteId = $cliente->id;
-    $endereco->atualizar();
+    if (hasEndereco()) {
+        $endereco->rua = $_POST["rua"];
+        $endereco->bairro = $_POST["bairro"];
+        $endereco->numero = $_POST["numero"];
+        $endereco->cidade = $_POST["cidade"];
+        $endereco->estado = $_POST["estado"];
+        $endereco->clienteId = $cliente->id;
+        if ($endereco->id !== null) {
+            $endereco->atualizar();
+        } else {
+            $endereco->cadastrar();
+        }
+    }
 
     header("location: index.php?status=success");
     exit();
@@ -55,7 +68,11 @@ function hasEndereco()
         $_POST["numero"],
         $_POST["cidade"],
         $_POST["estado"]
-    );
+    ) && strlen($_POST["rua"]) or
+        strlen($_POST["bairro"]) or
+        strlen($_POST["numero"]) or
+        strlen($_POST["cidade"]) or
+        strlen($_POST["estado"]);
 }
 
 include __DIR__ . "/includes/header.php";

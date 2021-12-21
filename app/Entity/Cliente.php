@@ -37,14 +37,19 @@ class Cliente
     }
 
     public function atualizar()
-    {
+    {   
         return (new Database("cliente"))->update('id = ' . $this->id, [
             "nome" => $this->nome,
             "cpf" => $this->cpf,
             "rg" => $this->rg,
             "telefone" => $this->telefone,
             "dataNasc" => $this->dataNasc,
-        ]);;
+        ]);
+    }
+
+    public function deletar()
+    {
+        return (new Database("cliente"))->delete('id = ' . $this->id);
     }
 
     public static function getClientes($where = null, $order = null, $limit = null)

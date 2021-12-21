@@ -6,8 +6,17 @@ define('TITLE', 'Cadastrar Cliente');
 
 use \App\Entity\Cliente;
 use \App\Entity\Endereco;
+use \App\Session\Login;
 
-if (isset($_POST["nome"], $_POST["cpf"], $_POST["rg"], $_POST["telefone"], $_POST["dataNasc"])) {
+Login::requireLogin();
+
+if (hasCliente()) {
+    foreach ($_POST['endereco[]'] as $teste) {
+        echo '<pre>';
+        print_r($teste);
+        echo '</pre>';
+        exit;
+    }
 
     $cliente = new Cliente;
     $cliente->nome = $_POST["nome"];
@@ -34,6 +43,11 @@ if (isset($_POST["nome"], $_POST["cpf"], $_POST["rg"], $_POST["telefone"], $_POS
     exit();
 }
 
+function hasCliente()
+{
+    return isset($_POST["nome"], $_POST["cpf"], $_POST["rg"], $_POST["telefone"], $_POST["dataNasc"]);
+}
+
 function hasEndereco()
 {
     return isset(
@@ -42,7 +56,11 @@ function hasEndereco()
         $_POST["numero"],
         $_POST["cidade"],
         $_POST["estado"]
-    );
+    ) && strlen($_POST["rua"]) or
+        strlen($_POST["bairro"]) or
+        strlen($_POST["numero"]) or
+        strlen($_POST["cidade"]) or
+        strlen($_POST["estado"]);
 }
 
 include __DIR__ . "/includes/header.php";

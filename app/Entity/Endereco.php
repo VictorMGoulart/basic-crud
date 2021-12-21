@@ -45,7 +45,12 @@ class Endereco
             "cidade" => $this->cidade,
             "estado" => $this->estado,
             "clienteId" => $this->clienteId,
-        ]);;
+        ]);
+    }
+
+    public function deletarByClienteId()
+    {
+        return (new Database("endereco"))->delete('clienteId = ' . $this->clienteId);
     }
 
     public static function getEnderecoByClienteId($clienteId)
